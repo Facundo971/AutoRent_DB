@@ -30,11 +30,17 @@ El foco está puesto en la estructuración lógica y física de los datos necesa
 ### Definición o planteamiento del problema
 
 Actualmente, muchas empresas de alquiler de autos en Corrientes operan con registros manuales o sistemas fragmentados, lo que genera problemas como: 
+
 • Inconsistencias en la disponibilidad de vehículos. 
+
 • Dificultades para consultar historiales de clientes y alquileres. 
+
 • Pérdida de información relevante. 
+
 • Falta de trazabilidad en el mantenimiento y uso de los autos. 
+
 Por lo tanto, el problema que se plantea es: 
+
 ¿Cómo diseñar una base de datos relacional que permita modelar de forma eficiente y segura los procesos de reserva, administración de vehículos, gestión de clientes y generación de reportes para una empresa de alquiler de autos? 
 
 ### Objetivos del Trabajo Práctico
