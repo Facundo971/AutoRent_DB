@@ -162,15 +162,31 @@ Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas 
 
 ## CAPÍTULO V: CONCLUSIONES
 
-Nunc sollicitudin purus quis ante sodales luctus. Proin a scelerisque libero, vitae pharetra lacus. Nunc finibus, tellus et dictum semper, nisi sem accumsan ligula, et euismod quam ex a tellus. 
+A partir del desarrollo del trabajo, se concluye que el diseño e implementación de la base de datos para el sistema AutoRent permitió resolver las principales limitaciones detectadas en la gestión manual del servicio de alquiler de autos en Corrientes. 
+
+La estructura relacional propuesta, basada en un modelo entidad-relación normalizado, logró representar de manera eficiente las entidades clave del negocio, garantizando integridad referencial, consistencia de datos y escalabilidad. 
+
+La implementación en SQL Server Management Studio permitió validar el modelo mediante la creación de tablas, relaciones, restricciones y procedimientos almacenados, demostrando que el sistema puede operar de forma segura y automatizada. Las consultas SQL diseñadas permitieron generar reportes útiles para la toma de decisiones, como historiales de alquiler, disponibilidad de vehículos y estadísticas de uso. 
+
+Se puede afirmar que los objetivos generales y específicos del trabajo fueron alcanzados, ya que se logró: 
+
+• Representar fielmente la lógica del negocio en una base de datos relacional. 
+
+• Optimizar el almacenamiento y recuperación de información. 
+
+• Automatizar procesos clave mediante funciones del motor SQL. 
+
+• Documentar el diseño de forma clara y reutilizable. 
+
+En síntesis, el trabajo realizado no solo resuelve las ineficiencias del sistema actual, sino que sienta las bases para una solución tecnológica robusta, adaptable y alineada con las necesidades del sector turístico regional. 
 
 
 
 ## BIBLIOGRAFÍA DE CONSULTA
 
- 1. List item
- 2. List item
- 3. List item
- 4. List item
- 5. List item
+[1] Unidad 2, Unidad 3 y Unidad 5: Diseño de Bases de Datos, Modelo Relacional 
+y SQL Avanzado, Aula Virtual UNNE, [En línea]. Disponible en: https://elibro.net/es/ereader/unne/121283 
+
+[2] J. C. Pérez, Bases de Datos Relacionales: Fundamentos y Aplicaciones, 
+Editorial Alfaomega, 2018. 
 
