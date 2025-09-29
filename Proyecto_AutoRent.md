@@ -7,9 +7,12 @@
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
 **Fecha:** 29-09-2025
+
 **Profesores**: Darío Villegas, Juan Jose Cuzziol, Walter Vallejos, Numa Badaracco.
+
 **Grupo Número:** 16.
-**Integrantes**:
+
+**Integrantes:**
  - Encinas Gastón Francisco.
  - Fernández González Facundo Antonio.
  - Fernández Axel Joel.
