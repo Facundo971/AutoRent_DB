@@ -17,6 +17,6 @@ Este espacio propone presentar la información para organizar el desarrollo del 
 		  tema_nombre.md (descripción completa del procedimiento para implementar el tema técnico de estudio)
 	---->tema_2
 	----> ...
-    ->nombre_proyecto.md (documento principal estructurado por capítulos)
+    ->Proyecto_AutoRent.md (documento principal estructurado por capítulos)
     
 **Estructura del documento principal:**
