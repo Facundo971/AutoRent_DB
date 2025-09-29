@@ -145,21 +145,6 @@ PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
 Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 
-### Desarrollo TEMA 1 "----"
-
-Fusce auctor finibus lectus, in aliquam orci fermentum id. Fusce sagittis lacus ante, et sodales eros porta interdum. Donec sed lacus et eros condimentum posuere. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_1](script/tema01_nombre_tema)
-
-### Desarrollo TEMA 2 "----"
-
-Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas a purus arcu. Etiam pellentesque tempor dictum. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
-
-... 
-
-
 ## CAPÍTULO V: CONCLUSIONES
 
 A partir del desarrollo del trabajo, se concluye que el diseño e implementación de la base de datos para el sistema AutoRent permitió resolver las principales limitaciones detectadas en la gestión manual del servicio de alquiler de autos en Corrientes. 
