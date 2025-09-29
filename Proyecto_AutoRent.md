@@ -67,8 +67,11 @@ Diseñar e implementar una base de datos relacional que respalde el funcionamien
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
 La presente investigación se enmarca en el uso de las Tecnologías de la Información y la Comunicación (TICs) aplicadas al sector turístico regional, con especial énfasis en el diseño de sistemas de gestión basados en bases de datos relacionales. En un contexto de creciente digitalización, las empresas de alquiler de autos enfrentan el desafío de modernizar sus procesos para mejorar la eficiencia operativa, la trazabilidad de sus recursos y la experiencia del cliente. 
+
 Desde una perspectiva de desarrollo regional, la incorporación de soluciones tecnológicas como AutoRent contribuye a fortalecer las cadenas productivas locales, mejorar la competitividad del sector turístico y promover un crecimiento sustentable. 
+
 La disponibilidad de información confiable y estructurada permite tomar decisiones estratégicas basadas en datos, lo cual es clave para el desarrollo económico de ciudades como Corrientes. 
+
 El diseño de la base de datos se apoya en conceptos fundamentales de la informática y la ingeniería de software, entre los cuales se destacan: 
 
 • Bases de datos relacionales: modelo que organiza la información en tablas relacionadas mediante claves primarias y foráneas, facilitando la integridad y consistencia de los datos. 
@@ -85,22 +88,37 @@ Para la implementación técnica se utilizará SQL Server Management Studio (SSM
 
  **a) Cómo se realizó el Trabajo Práctico**
 El desarrollo del trabajo práctico se realizó siguiendo una metodología estructurada, orientada al diseño e implementación de una base de datos relacional para el sistema AutoRent. El proceso se dividió en etapas secuenciales que permitieron abordar el problema desde su conceptualización hasta su implementación técnica. 
+
 **Etapas principales:** 
+
 • Definición del problema y objetivos: Se identificaron las limitaciones en la gestión manual del alquiler de autos en Corrientes y se estableció como objetivo el diseño de una base de datos que permita digitalizar y centralizar la información clave del negocio. 
+
 • Relevamiento de requisitos: Se analizaron las necesidades de información del sistema, incluyendo entidades como clientes, vehículos, métodos de pagos, y reservas. Se definieron los atributos relevantes y las relaciones entre ellos. 
+
 • Modelado conceptual: Se elaboró el diagrama entidad-relación (E-R) para representar las entidades, sus atributos y relaciones. Se incluyeron cardinalidades, claves primarias y foráneas, y se documentó el diccionario de datos. 
+
 • Normalización: Se aplicaron las reglas de normalización hasta la tercera forma normal (3FN) para garantizar la integridad y evitar redundancias. 
+
 • Implementación física: Se utilizó SQL Server Management Studio para crear las tablas, definir restricciones, cargar datos de prueba y ejecutar consultas SQL. Se implementaron procedimientos almacenados y triggers para automatizar tareas como la actualización de disponibilidad y el registro de contratos. 
+
 • Validación y pruebas: Se realizaron pruebas de integridad referencial, consultas de verificación y simulaciones de uso para evaluar el rendimiento y la consistencia de la base de datos. 
+
 Este enfoque permitió una construcción progresiva y controlada del sistema de información, asegurando que la base de datos cumpla con los requisitos funcionales y técnicos del proyecto.
 
  **b) Herramientas (Instrumentos y procedimientos)**
+
 Para la recolección, análisis y tratamiento de la información se utilizaron los siguientes instrumentos y procedimientos: 
+
 **• Revisión bibliográfica y documental:** Se consultaron textos académicos sobre bases de datos relacionales, normalización, modelado E-R y gestión de transacciones. También se revisaron guías metodológicas de la asignatura y estándares de documentación. 
+
 **• Internet y fuentes digitales:** Se utilizaron recursos como la documentación oficial de SQL Server, artículos especializados en diseño de bases de datos y materiales sobre TICs aplicadas al turismo. 
+
 **• Herramientas de software:** 
+
 • ERDPlus: Para el diseño del modelo conceptual y el modelo relacional. 
+
 • SQL Server Management Studio: Para la creación, mantenimiento y prueba de la base de datos. 
+
 • Excel y Word: Para la elaboración del diccionario de datos, documentación técnica y presentación del trabajo.
 
 
