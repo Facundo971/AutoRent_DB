@@ -52,10 +52,15 @@ Diseñar e implementar una base de datos relacional que respalde el funcionamien
 **Objetivos Específicos** 
 
 • Modelar entidades y relaciones que representen clientes, vehículos, método de pago, y reservas. 
+
 • Definir claves primarias, foráneas y restricciones de integridad para garantizar consistencia de los datos.
+
 • Implementar procedimientos almacenados y triggers para automatizar tareas como actualización de disponibilidad o vencimiento de contratos. 
+
 • Diseñar consultas SQL que permitan generar reportes financieros, históricos de alquiler y estadísticas de uso. 
+
 • Evaluar el rendimiento de la base de datos ante operaciones concurrentes y proponer mejoras de indexación. 
+
 • Documentar el modelo entidad-relación y el diccionario de datos para facilitar futuras ampliaciones del sistema. 
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
@@ -64,10 +69,15 @@ La presente investigación se enmarca en el uso de las Tecnologías de la Inform
 Desde una perspectiva de desarrollo regional, la incorporación de soluciones tecnológicas como AutoRent contribuye a fortalecer las cadenas productivas locales, mejorar la competitividad del sector turístico y promover un crecimiento sustentable. 
 La disponibilidad de información confiable y estructurada permite tomar decisiones estratégicas basadas en datos, lo cual es clave para el desarrollo económico de ciudades como Corrientes. 
 El diseño de la base de datos se apoya en conceptos fundamentales de la informática y la ingeniería de software, entre los cuales se destacan: 
+
 • Bases de datos relacionales: modelo que organiza la información en tablas relacionadas mediante claves primarias y foráneas, facilitando la integridad y consistencia de los datos. 
+
 • Modelado entidad-relación (E-R): técnica que permite representar gráficamente las entidades del sistema, sus atributos y las relaciones entre ellas, como clientes, vehículos, métodos de pagos, y reservas. 
+
 • Normalización: proceso que busca eliminar redundancias y dependencias no deseadas, mejorando la eficiencia del almacenamiento y la calidad de los datos. 
+
 • Seguridad y respaldo de datos: prácticas orientadas a proteger la información contra accesos no autorizados, pérdidas o alteraciones, asegurando la continuidad del servicio. 
+
 Para la implementación técnica se utilizará SQL Server Management Studio (SSMS), una herramienta de administración que permite diseñar, consultar y mantener bases de datos en el motor Microsoft SQL Server. Esta elección se fundamenta en su robustez, escalabilidad y soporte para procedimientos almacenados, triggers, vistas y funciones, elementos clave para la gestión eficiente de sistemas transaccionales como el de alquiler de autos. 
 
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA 
