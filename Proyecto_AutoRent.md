@@ -1,6 +1,6 @@
 # Proyecto de Estudio!
     
-****Estructura del documento principal:****
+**Estructura del documento principal:**
 
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
