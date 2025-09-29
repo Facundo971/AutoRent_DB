@@ -25,6 +25,7 @@
 ### Caso de estudio
 
 El trabajo práctico aborda el diseño e implementación de una base de datos relacional para una plataforma de gestión de alquiler de autos denominada **AutoRent**, orientada a empresas turísticas en la ciudad de Corrientes y alrededores. 
+
 El foco está puesto en la estructuración lógica y física de los datos necesarios para administrar reservas, clientes, vehículos, métodos de pago y reportes, garantizando integridad, eficiencia y escalabilidad.
 
 ### Definición o planteamiento del problema
