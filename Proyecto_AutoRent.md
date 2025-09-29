@@ -18,6 +18,7 @@
 
 **Año**: 2025
 
+
 ## CAPÍTULO I: INTRODUCCIÓN
 
 ### Caso de estudio
@@ -62,6 +63,7 @@ Diseñar e implementar una base de datos relacional que respalde el funcionamien
 
 • Documentar el modelo entidad-relación y el diccionario de datos para facilitar futuras ampliaciones del sistema. 
 
+
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
 La presente investigación se enmarca en el uso de las Tecnologías de la Información y la Comunicación (TICs) aplicadas al sector turístico regional, con especial énfasis en el diseño de sistemas de gestión basados en bases de datos relacionales. En un contexto de creciente digitalización, las empresas de alquiler de autos enfrentan el desafío de modernizar sus procesos para mejorar la eficiencia operativa, la trazabilidad de sus recursos y la experiencia del cliente. 
@@ -81,6 +83,7 @@ El diseño de la base de datos se apoya en conceptos fundamentales de la inform�
 • Seguridad y respaldo de datos: prácticas orientadas a proteger la información contra accesos no autorizados, pérdidas o alteraciones, asegurando la continuidad del servicio. 
 
 Para la implementación técnica se utilizará SQL Server Management Studio (SSMS), una herramienta de administración que permite diseñar, consultar y mantener bases de datos en el motor Microsoft SQL Server. Esta elección se fundamenta en su robustez, escalabilidad y soporte para procedimientos almacenados, triggers, vistas y funciones, elementos clave para la gestión eficiente de sistemas transaccionales como el de alquiler de autos. 
+
 
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA 
 
@@ -149,7 +152,6 @@ Se puede afirmar que los objetivos generales y específicos del trabajo fueron a
 • Documentar el diseño de forma clara y reutilizable. 
 
 En síntesis, el trabajo realizado no solo resuelve las ineficiencias del sistema actual, sino que sienta las bases para una solución tecnológica robusta, adaptable y alineada con las necesidades del sector turístico regional. 
-
 
 
 ## BIBLIOGRAFÍA DE CONSULTA
