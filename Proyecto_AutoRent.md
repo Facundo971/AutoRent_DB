@@ -88,6 +88,7 @@ Para la implementación técnica se utilizará SQL Server Management Studio (SSM
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA 
 
  **a) Cómo se realizó el Trabajo Práctico**
+
 El desarrollo del trabajo práctico se realizó siguiendo una metodología estructurada, orientada al diseño e implementación de una base de datos relacional para el sistema AutoRent. El proceso se dividió en etapas secuenciales que permitieron abordar el problema desde su conceptualización hasta su implementación técnica. 
 
 **Etapas principales:** 
