@@ -2,8 +2,6 @@
     
 **Estructura del documento principal:**
 
-# PRESENTACIÓN (Auto)
-
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
 **Fecha**: 29-09-2025
