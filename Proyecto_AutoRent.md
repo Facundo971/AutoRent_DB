@@ -2,14 +2,18 @@
     
 **Estructura del documento principal:**
 
-# PRESENTACIÓN (Título/Nombre Proyecto)
+# PRESENTACIÓN (Auto)
 
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
+**Fecha:** 29-09-2025
+**Profesores**: Darío Villegas, Juan Jose Cuzziol, Walter Vallejos, Numa Badaracco.
+**Grupo Número:** 16.
 **Integrantes**:
- - Sed vel lectus nec lectus placerat laoreet et sed est.
- - Sed ac justo ac mauris porttitor convallis non sit amet felis.
- - In tincidunt augue sed molestie malesuada.
+ - Encinas Gastón Francisco.
+ - Fernández González Facundo Antonio.
+ - Fernández Axel Joel.
+ - Méndez Nazareno.
 
 **Año**: 2024
 
