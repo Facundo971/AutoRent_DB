@@ -105,8 +105,6 @@ Para la implementación técnica se utilizará SQL Server Management Studio (SSM
 
 El desarrollo del trabajo práctico se realizó siguiendo una metodología estructurada, orientada al diseño e implementación de una base de datos relacional para el sistema ***AutoRent***. El proceso se dividió en etapas secuenciales que permitieron abordar el problema desde su conceptualización hasta su implementación técnica. 
 
-El desarrollo del trabajo práctico se realizó siguiendo una metodología estructurada, orientada al diseño e implementación de una base de datos relacional para el sistema AutoRent. El proceso se dividió en etapas secuenciales que permitieron abordar el problema desde su conceptualización hasta su implementación técnica. 
-
 **Etapas principales:** 
 
 • Definición del problema y objetivos: Se identificaron las limitaciones en la gestión manual del alquiler de autos en Corrientes y se estableció como objetivo el diseño de una base de datos que permita digitalizar y centralizar la información clave del negocio. 
