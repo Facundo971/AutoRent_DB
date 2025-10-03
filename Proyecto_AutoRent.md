@@ -1,8 +1,8 @@
-# Proyecto de Estudio!
+# Sistema de Alquiler de Autos - AutoRent
     
-**Estructura del documento principal:**
-
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
+
+**Carrera**: Licenciatura en Sistemas de Información
 
 **Fecha**: 29-09-2025
 
@@ -17,6 +17,20 @@
  - Méndez Nazareno.
 
 **Año**: 2025
+
+# Índice
+
+1. [CAPÍTULO I: INTRODUCCIÓN](#capítulo-i-introducción)
+    1.    [Caso de estudio](#caso-de-estudio)
+    2.    [Definición o planteamiento del problema](#definición-o-planteamiento-del-problema)
+    3.    [Objetivos del Trabajo Práctico](#objetivos-del-trabajo-práctico)
+2. [CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL](#capitulo-ii-marco-conceptual-o-referencial)
+3. [CAPÍTULO III: METODOLOGÍA SEGUIDA](#capítulo-iii-metodología-seguida)
+4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
+    1.    [Diagrama relacional](#diagrama-relacional)
+    2.    [Diccionario de datos](#diccionario-de-datos)
+5. [CAPÍTULO V: CONCLUSIONES](#capítulo-v-conclusiones)
+6. [CAPÍTULO VI: BIBLIOGRAFÍA DE CONSULTA](#bibliografía-de-consulta)
 
 
 ## CAPÍTULO I: INTRODUCCIÓN
@@ -47,7 +61,7 @@ Por lo tanto, el problema que se plantea es:
 
 **Objetivo General** 
 
-Diseñar e implementar una base de datos relacional que respalde el funcionamiento integral de la plataforma AutoRent, permitiendo almacenar, consultar y administrar la información clave del negocio de alquiler de autos. 
+Diseñar e implementar una base de datos relacional que respalde el funcionamiento integral de la plataforma **AutoRent**, permitiendo almacenar, consultar y administrar la información clave del negocio de alquiler de autos. 
 
 **Objetivos Específicos** 
 
@@ -68,7 +82,7 @@ Diseñar e implementar una base de datos relacional que respalde el funcionamien
 
 La presente investigación se enmarca en el uso de las Tecnologías de la Información y la Comunicación (TICs) aplicadas al sector turístico regional, con especial énfasis en el diseño de sistemas de gestión basados en bases de datos relacionales. En un contexto de creciente digitalización, las empresas de alquiler de autos enfrentan el desafío de modernizar sus procesos para mejorar la eficiencia operativa, la trazabilidad de sus recursos y la experiencia del cliente. 
 
-Desde una perspectiva de desarrollo regional, la incorporación de soluciones tecnológicas como AutoRent contribuye a fortalecer las cadenas productivas locales, mejorar la competitividad del sector turístico y promover un crecimiento sustentable. 
+Desde una perspectiva de desarrollo regional, la incorporación de soluciones tecnológicas como **AutoRent** contribuye a fortalecer las cadenas productivas locales, mejorar la competitividad del sector turístico y promover un crecimiento sustentable. 
 
 La disponibilidad de información confiable y estructurada permite tomar decisiones estratégicas basadas en datos, lo cual es clave para el desarrollo económico de ciudades como Corrientes. 
 
