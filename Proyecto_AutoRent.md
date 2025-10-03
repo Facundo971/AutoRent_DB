@@ -110,7 +110,7 @@ El desarrollo del trabajo práctico se realizó siguiendo una metodología estru
 
 • Relevamiento de requisitos: Se analizaron las necesidades de información del sistema, incluyendo entidades como clientes, vehículos, métodos de pagos y reservas. Se definieron los atributos relevantes y las relaciones entre ellos, asegurando que la estructura contemplara tanto los procesos actuales como posibles ampliaciones futuras.
 
-• Modelado conceptual: Se elaboró el diagrama entidad-relación (E-R) para representar las entidades, sus atributos y relaciones. Se incluyeron cardinalidades, claves primarias y foráneas, y se documentó el diccionario de datos. 
+• Modelado conceptual: Se elaboró el diagrama entidad-relación (E-R) para representar las entidades, sus atributos y relaciones. Se incluyeron cardinalidades, claves primarias y foráneas, y se documentó el diccionario de datos. Este paso permitió validar la lógica del sistema antes de avanzar hacia la implementación. 
 
 • Normalización: Se aplicaron las reglas de normalización hasta la tercera forma normal (3FN) para garantizar la integridad y evitar redundancias. 
 
