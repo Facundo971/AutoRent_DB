@@ -114,7 +114,7 @@ El desarrollo del trabajo práctico se realizó siguiendo una metodología estru
 
 • Normalización: Se aplicaron las reglas de normalización hasta la tercera forma normal (3FN) para garantizar la integridad y evitar redundancias. Con ello se logró una base sólida que facilita el mantenimiento y asegura la consistencia de la información a largo plazo.
 
-• Implementación física: Se utilizó SQL Server Management Studio para crear las tablas, definir restricciones, cargar datos de prueba y ejecutar consultas SQL. Se implementaron procedimientos almacenados y triggers para automatizar tareas como la actualización de disponibilidad y el registro de contratos. 
+• Implementación física: Se utilizó SQL Server Management Studio para crear las tablas, definir restricciones, cargar datos de prueba y ejecutar consultas SQL. Se implementaron procedimientos almacenados y triggers para automatizar tareas como la actualización de disponibilidad y el registro de contratos, optimizando así la operatividad del sistema. 
 
 • Validación y pruebas: Se realizaron pruebas de integridad referencial, consultas de verificación y simulaciones de uso para evaluar el rendimiento y la consistencia de la base de datos. 
 
