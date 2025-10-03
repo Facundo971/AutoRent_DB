@@ -108,7 +108,7 @@ El desarrollo del trabajo práctico se realizó siguiendo una metodología estru
 
 • Definición del problema y objetivos: Se identificaron las limitaciones en la gestión manual del alquiler de autos en Corrientes y se estableció como objetivo el diseño de una base de datos que permita digitalizar y centralizar la información clave del negocio. Además, se buscó mejorar la eficiencia operativa y reducir los errores derivados de los registros manuales.
 
-• Relevamiento de requisitos: Se analizaron las necesidades de información del sistema, incluyendo entidades como clientes, vehículos, métodos de pagos, y reservas. Se definieron los atributos relevantes y las relaciones entre ellos. 
+• Relevamiento de requisitos: Se analizaron las necesidades de información del sistema, incluyendo entidades como clientes, vehículos, métodos de pagos y reservas. Se definieron los atributos relevantes y las relaciones entre ellos, asegurando que la estructura contemplara tanto los procesos actuales como posibles ampliaciones futuras.
 
 • Modelado conceptual: Se elaboró el diagrama entidad-relación (E-R) para representar las entidades, sus atributos y relaciones. Se incluyeron cardinalidades, claves primarias y foráneas, y se documentó el diccionario de datos. 
 
