@@ -118,7 +118,7 @@ El desarrollo del trabajo práctico se realizó siguiendo una metodología estru
 
 • Validación y pruebas: Se realizaron pruebas de integridad referencial, consultas de verificación y simulaciones de uso para evaluar el rendimiento y la consistencia de la base de datos. Estas pruebas permitieron detectar posibles ajustes y confirmar que el sistema respondiera adecuadamente a los escenarios planteados. 
 
-Este enfoque permitió una construcción progresiva y controlada del sistema de información, asegurando que la base de datos cumpla con los requisitos funcionales y técnicos del proyecto.
+Este enfoque permitió una construcción progresiva y controlada del sistema de información, asegurando que la base de datos cumpla con los requisitos funcionales y técnicos del proyecto, al mismo tiempo que sienta las bases para futuras mejoras y escalabilidad.
 
  **b) Herramientas (Instrumentos y procedimientos)**
 
