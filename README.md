@@ -19,4 +19,3 @@ Este espacio propone presentar la información para organizar el desarrollo del 
 	----> ...
     ->Proyecto_AutoRent.md (documento principal estructurado por capítulos)
     
-**Estructura del documento principal:**
