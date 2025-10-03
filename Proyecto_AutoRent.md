@@ -152,8 +152,6 @@ Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
 A partir del desarrollo del trabajo, se concluye que el diseño e implementación de la base de datos para el sistema ***AutoRent*** permitió resolver las principales limitaciones detectadas en la gestión manual del servicio de alquiler de autos en Corrientes. 
 
-A partir del desarrollo del trabajo, se concluye que el diseño e implementación de la base de datos para el sistema AutoRent permitió resolver las principales limitaciones detectadas en la gestión manual del servicio de alquiler de autos en Corrientes. 
-
 La estructura relacional propuesta, basada en un modelo entidad-relación normalizado, logró representar de manera eficiente las entidades clave del negocio, garantizando integridad referencial, consistencia de datos y escalabilidad. 
 
 La implementación en SQL Server Management Studio permitió validar el modelo mediante la creación de tablas, relaciones, restricciones y procedimientos almacenados, demostrando que el sistema puede operar de forma segura y automatizada. Las consultas SQL diseñadas permitieron generar reportes útiles para la toma de decisiones, como historiales de alquiler, disponibilidad de vehículos y estadísticas de uso. 
