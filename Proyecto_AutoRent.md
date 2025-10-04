@@ -27,7 +27,7 @@
 2. [CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL](#capítulo-ii-marco-conceptual-o-referencial)
 3. [CAPÍTULO III: METODOLOGÍA SEGUIDA](#capítulo-iii-metodología-seguida)
     1. [Desarrollo del Trabajo Práctico](#a-cómo-se-realizó-el-trabajo-práctico)
-    2. [Herramientas Usadas](b-herramientas-instrumentos-y-procedimientos)
+    2. [Herramientas Usadas](#b-herramientas-instrumentos-y-procedimientos)
 4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
 5. [CAPÍTULO V: CONCLUSIONES](#capítulo-v-conclusiones)
 6. [CAPÍTULO VI: BIBLIOGRAFÍA DE CONSULTA](#bibliografía-de-consulta)
