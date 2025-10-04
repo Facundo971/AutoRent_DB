@@ -24,7 +24,7 @@
     1.    [Caso de estudio](#caso-de-estudio)
     2.    [Definición o planteamiento del problema](#definición-o-planteamiento-del-problema)
     3.    [Objetivos del Trabajo Práctico](#objetivos-del-trabajo-práctico)
-2. [CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL](#capitulo-ii-marco-conceptual-o-referencial)
+2. [CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL](#capítulo-ii-marco-conceptual-o-referencial)
 3. [CAPÍTULO III: METODOLOGÍA SEGUIDA](#capítulo-iii-metodología-seguida)
 4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
     1.    [Diagrama relacional](#diagrama-relacional)
@@ -45,13 +45,13 @@ El foco está puesto en la estructuración lógica y física de los datos necesa
 
 Actualmente, muchas empresas de alquiler de autos en Corrientes operan con registros manuales o sistemas fragmentados, lo que genera problemas como: 
 
-• Inconsistencias en la disponibilidad de vehículos. 
+- Inconsistencias en la disponibilidad de vehículos. 
 
-• Dificultades para consultar historiales de clientes y alquileres. 
+- Dificultades para consultar historiales de clientes y alquileres. 
 
-• Pérdida de información relevante. 
+- Pérdida de información relevante. 
 
-• Falta de trazabilidad en el mantenimiento y uso de los autos. 
+- Falta de trazabilidad en el mantenimiento y uso de los autos. 
 
 Por lo tanto, el problema que se plantea es: 
 
@@ -65,20 +65,20 @@ Diseñar e implementar una base de datos relacional que respalde el funcionamien
 
 **Objetivos Específicos** 
 
-• Modelar entidades y relaciones que representen clientes, vehículos, método de pago, y reservas. 
+- Modelar entidades y relaciones que representen clientes, vehículos, método de pago, y reservas. 
 
-• Definir claves primarias, foráneas y restricciones de integridad para garantizar consistencia de los datos.
+- Definir claves primarias, foráneas y restricciones de integridad para garantizar consistencia de los datos.
 
-• Implementar procedimientos almacenados y triggers para automatizar tareas como actualización de disponibilidad o vencimiento de contratos. 
+- Implementar procedimientos almacenados y triggers para automatizar tareas como actualización de disponibilidad o vencimiento de contratos. 
 
-• Diseñar consultas SQL que permitan generar reportes financieros, históricos de alquiler y estadísticas de uso. 
+- Diseñar consultas SQL que permitan generar reportes financieros, históricos de alquiler y estadísticas de uso. 
 
-• Evaluar el rendimiento de la base de datos ante operaciones concurrentes y proponer mejoras de indexación. 
+- Evaluar el rendimiento de la base de datos ante operaciones concurrentes y proponer mejoras de indexación. 
 
-• Documentar el modelo entidad-relación y el diccionario de datos para facilitar futuras ampliaciones del sistema. 
+- Documentar el modelo entidad-relación y el diccionario de datos para facilitar futuras ampliaciones del sistema. 
 
 
-## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
+## CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
 
 La presente investigación se enmarca en el uso de las Tecnologías de la Información y la Comunicación (TICs) aplicadas al sector turístico regional, con especial énfasis en el diseño de sistemas de gestión basados en bases de datos relacionales. En un contexto de creciente digitalización, las empresas de alquiler de autos enfrentan el desafío de modernizar sus procesos para mejorar la eficiencia operativa, la trazabilidad de sus recursos y la experiencia del cliente. 
 
@@ -88,13 +88,13 @@ La disponibilidad de información confiable y estructurada permite tomar decisio
 
 El diseño de la base de datos se apoya en conceptos fundamentales de la informática y la ingeniería de software, entre los cuales se destacan: 
 
-• Bases de datos relacionales: modelo que organiza la información en tablas relacionadas mediante claves primarias y foráneas, facilitando la integridad y consistencia de los datos. 
+- Bases de datos relacionales: modelo que organiza la información en tablas relacionadas mediante claves primarias y foráneas, facilitando la integridad y consistencia de los datos. 
 
-• Modelado entidad-relación (E-R): técnica que permite representar gráficamente las entidades del sistema, sus atributos y las relaciones entre ellas, como clientes, vehículos, métodos de pagos, y reservas. 
+- Modelado entidad-relación (E-R): técnica que permite representar gráficamente las entidades del sistema, sus atributos y las relaciones entre ellas, como clientes, vehículos, métodos de pagos, y reservas. 
 
-• Normalización: proceso que busca eliminar redundancias y dependencias no deseadas, mejorando la eficiencia del almacenamiento y la calidad de los datos. 
+- Normalización: proceso que busca eliminar redundancias y dependencias no deseadas, mejorando la eficiencia del almacenamiento y la calidad de los datos. 
 
-• Seguridad y respaldo de datos: prácticas orientadas a proteger la información contra accesos no autorizados, pérdidas o alteraciones, asegurando la continuidad del servicio. 
+- Seguridad y respaldo de datos: prácticas orientadas a proteger la información contra accesos no autorizados, pérdidas o alteraciones, asegurando la continuidad del servicio. 
 
 Para la implementación técnica se utilizará SQL Server Management Studio (SSMS), una herramienta de administración que permite diseñar, consultar y mantener bases de datos en el motor Microsoft SQL Server. Esta elección se fundamenta en su robustez, escalabilidad y soporte para procedimientos almacenados, triggers, vistas y funciones, elementos clave para la gestión eficiente de sistemas transaccionales como el de alquiler de autos. 
 
