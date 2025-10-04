@@ -26,9 +26,9 @@
     3.    [Objetivos del Trabajo Práctico](#objetivos-del-trabajo-práctico)
 2. [CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL](#capítulo-ii-marco-conceptual-o-referencial)
 3. [CAPÍTULO III: METODOLOGÍA SEGUIDA](#capítulo-iii-metodología-seguida)
+    1. [Desarrollo del Trabajo Práctico](#a-cómo-se-realizó-el-trabajo-práctico)
+    2. [Herramientas Usadas](b-herramientas-instrumentos-y-procedimientos)
 4. [CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS](#capítulo-iv-desarrollo-del-tema--presentación-de-resultados)
-    1.    [Diagrama relacional](#diagrama-relacional)
-    2.    [Diccionario de datos](#diccionario-de-datos)
 5. [CAPÍTULO V: CONCLUSIONES](#capítulo-v-conclusiones)
 6. [CAPÍTULO VI: BIBLIOGRAFÍA DE CONSULTA](#bibliografía-de-consulta)
 
@@ -101,7 +101,7 @@ Para la implementación técnica se utilizará SQL Server Management Studio (SSM
 
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA 
 
-**a) Cómo se realizó el Trabajo Práctico**
+#### a) Cómo se realizó el Trabajo Práctico
 El desarrollo del trabajo práctico se realizó siguiendo una metodología estructurada, orientada al diseño e implementación de una base de datos relacional para el sistema ***AutoRent***. El proceso se dividió en etapas secuenciales que permitieron abordar el problema desde su conceptualización hasta su implementación técnica, garantizando un flujo de trabajo ordenado y coherente
 
 **Etapas principales:**
@@ -120,7 +120,7 @@ El desarrollo del trabajo práctico se realizó siguiendo una metodología estru
 
 Este enfoque permitió una construcción progresiva y controlada del sistema de información, asegurando que la base de datos cumpla con los requisitos funcionales y técnicos del proyecto, al mismo tiempo que sienta las bases para futuras mejoras y escalabilidad.
 
- **b) Herramientas (Instrumentos y procedimientos)**
+ #### b) Herramientas (Instrumentos y procedimientos)
 
 Para la recolección, análisis y tratamiento de la información se utilizaron los siguientes instrumentos y procedimientos: 
 
