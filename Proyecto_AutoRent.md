@@ -145,7 +145,7 @@ Para la recolección, análisis y tratamiento de la información se utilizaron l
 ### Diccionario de datos
 
 Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
-
+Acceso al documento [PDF](https://github.com/Facundo971/AutoRent_DB/blob/main/doc/diccionario_datos.pdf) del diccionario de datos.
 
 ## CAPÍTULO V: CONCLUSIONES
 
