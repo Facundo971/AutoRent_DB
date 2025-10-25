@@ -140,7 +140,7 @@ Para la recolección, análisis y tratamiento de la información se utilizaron l
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
 ### Diagrama relacional
-![diagrama_relacional](https://github.com/Facundo971/AutoRent_DB/blob/main/doc/image_relational.png)
+![diagrama_relacional](doc/image_relational.png)
 
 ### Diccionario de datos
 
