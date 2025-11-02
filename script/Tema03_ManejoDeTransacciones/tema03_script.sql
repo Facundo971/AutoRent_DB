@@ -49,3 +49,4 @@ BEGIN CATCH
 	ROLLBACK TRANSACTION;
 	PRINT 'error al finalizar reserva';
 END CATCH
+
