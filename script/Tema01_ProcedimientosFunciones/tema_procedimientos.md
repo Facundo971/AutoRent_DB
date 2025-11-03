@@ -2,21 +2,24 @@ Procedimientos y funciones almacenadas
 
 Procedimientos almacenados
 
+
 ¿Qué son? 
 
 Son un conjunto de instrucciones SQL que se almacenan en la base de datos como un solo objeto y se ejecutan como una unidad.
+
 
 ¿Para qué sirven?
 
 -Realizar operaciones complejas y automatizar tareas.
 
-Reducir el tráfico de red al ejecutar el código en el servidor en lugar de enviarlo desde el cliente.
+-Reducir el tráfico de red al ejecutar el código en el servidor en lugar de enviarlo desde el cliente.
 
 -Mejorar el rendimiento porque el plan de ejecución se almacena la primera vez y se reutiliza en ejecuciones posteriores.
 
 -Aumentar la seguridad, ya que se pueden conceder permisos de ejecución sobre el procedimiento en lugar de permitir acceso directo a las tablas.
 
 -Reutilizar código.
+
 
 Características:
 
@@ -27,7 +30,7 @@ Características:
 -Pueden devolver uno o varios conjuntos de resultados
 
 
-Funciones
+Funciones almacenadas
 
 ¿Qué son? 
 
