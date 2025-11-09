@@ -61,39 +61,22 @@ Transacciones de objetos
 Transacciones de objetos distribuidos 
 
 Incluir pasos no transaccionales 
-
-5.1 Transacciones de base de datos 
-
-La forma más sencilla de que una aplicación implemente transacciones es usar las características proporcionadas por la base de datos. Las transacciones se pueden iniciar, intentar y luego confirmar o abortar a través del código SQL. Mejor aún, las API de base de datos como Java Database Connectivity (JDBC) y Open Database Connectivity (ODBC) proporcionan clases que admiten la funcionalidad transaccional básica. 
-
-  
-
-5.2 Transacciones de objetos 
-
-En el momento de escribir este artículo, el soporte para el control de transacciones es uno de los problemas más apremiantes en la comunidad de servicios web y el soporte completo para transacciones anidadas está en marcha dentro de la comunidad EJB. Como puede ver en la figura 1, las bases de datos no son las únicas cosas que pueden estar involucradas en las transacciones. El hecho es que los objetos, servicios, componentes, aplicaciones heredadas y fuentes de datos no relacionales se pueden incluir en las transacciones. 
-
-Figure 1. Transactions can involve more than just databases. 
-
  
+ Uso de transacciones en el proyecto de renta de autos
+En el desarrollo de la aplicación de renta de autos se implementaron transacciones SQL para garantizar la integridad y consistencia de los datos en operaciones críticas. Estas transacciones se aplicaron en distintos puntos del flujo de negocio:
+- Registro de coches
+- Se utilizó una transacción al momento de dar de alta un nuevo coche junto con su modelo y marca.
+- El objetivo fue asegurar que el coche no quede registrado sin su información completa. Si ocurre un error en la inserción, se revierte todo el proceso, evitando datos incompletos o inconsistentes.
+- Creación de reservas con pago inicial
+- La transacción agrupa la inserción de la reserva, el registro del pago inicial y la actualización del estado del coche a “No disponible”.
+- El fin es garantizar que estas tres operaciones se ejecuten como un bloque indivisible: si alguna falla, se deshace todo. Esto evita que un coche quede marcado como ocupado sin reserva válida, o que exista una reserva sin pago asociado.
+- Finalización de reservas
+- Al cerrar una reserva, la transacción actualiza el estado de la misma a “Finalizada” y libera el coche cambiando su estado a “Disponible”.
+- El propósito es asegurar que el coche solo vuelva a estar disponible si la reserva realmente se cerró correctamente. Si alguna actualización falla, se revierte el proceso.
 
-La ventaja de agregar comportamientos implementados por objetos (y de manera similar servicios, componentes, etc.) a las transacciones es que se vuelven mucho más robustas. ¿Te imaginas usar un editor de código, un procesador de textos o un programa de dibujo sin una función de deshacer? Si no es así, creo que es razonable esperar tanto la invocación del comportamiento como las transformaciones de datos como pasos de una transacción. Desafortunadamente, esta estrategia viene con una desventaja significativa: una mayor complejidad. Para que esto funcione, sus objetos de negocio deben ser conscientes de las transacciones. Cualquier comportamiento que se pueda invocar como paso en una transacción requiere admitir operaciones de intento, confirmación y anulación/reversión. Agregar soporte para transacciones basadas en objetos no es un esfuerzo trivial. 
-
-5.3 Transacciones de objetos distribuidos 
-
-Al igual que es posible tener transacciones de datos distribuidas, también es posible tener transacciones de objetos distribuidas. Para ser más precisos, como puede ver en la Figura 1, se trata solo de transacciones distribuidas, ya no se trata solo de bases de datos, sino de bases de datos más objetos más servicios más componentes más"¦ y así sucesivamente. 
-
-5.4 Inclusión de pasos no transaccionales 
-
-A veces se encuentra que necesita incluir una fuente no transaccional dentro de una transacción. Un ejemplo perfecto es una actualización de la información contenida en un directorio LDAP o la invocación de un servicio web, ninguno de los cuales en el momento de escribir este artículo admite transacciones. El problema es que tan pronto como un paso dentro de una transacción no es transaccional, la transacción ya no es una transacción. Tienes cuatro estrategias básicas disponibles para lidiar con esta situación: 
-
-Elimine el paso no transaccional de la transacción. En la práctica, esto rara vez es una opción, pero si es una estrategia viable, considere hacerlo. 
-
-Implemente commit. Esta estrategia, que podría considerarse como la estrategia de "esperar que la transacción principal no se aborte", le permite incluir un paso no transaccional dentro de su transacción. Deberá simular el protocolo de intento, confirmación y anulación utilizado por el administrador de transacciones. Los comportamientos de intento y anulación son simplemente esbozos que no hacen otra cosa que implementar la lógica de protocolo requerida. El único comportamiento que implemente, la confirmación, invocará la funcionalidad no transaccional que desee. Un sabor diferente de este enfoque, que nunca he visto usado en la práctica, pondría la lógica en la fase de intento en lugar de la fase de confirmación. 
-
-Implementar intento y anulación. Esta es una extensión de la técnica anterior mediante la cual básicamente implementa la lógica "hacer" y "deshacer", pero no la confirmación. En este caso, el trabajo se realiza en la fase de intento; Se supone que el resto de la transacción funcionará, pero si no es así, aún admite la capacidad de revertir el trabajo. Esta es una "casi transacción" porque no evita los problemas con las colisiones descritos anteriormente. 
-
-Hazlo transaccional. Con este enfoque, implementa completamente los comportamientos de intento, confirmación y anulación necesarios. La implicación es que deberá implementar toda la lógica para bloquear los recursos afectados y recuperarse de cualquier colisión. Un ejemplo de este enfoque está soportado por la arquitectura de conector J2EE (JCA), en particular por la interfaz LocalTransaction. 
-
-¿Qué enfoque debería adoptar? Prefiero las estrategias #1 y #4: cuando se trata de transacciones, quiero hacerlo bien o no hacerlo en absoluto. El problema con la implementación de la lógica transaccional completa es que puede ser mucho trabajo. Consideraré la estrategia de intento y aborto cuando sea posible vivir con los resultados de una colisión, y la estrategia # 2 como último recurso. Un problema importante es que la estrategia # 4 es la única que pasa la prueba ACID. 
-
- 
+Finalidad de las transacciones
+El uso de transacciones en el proyecto tiene como fin:
+- Mantener la coherencia de los datos en operaciones que afectan múltiples tablas.
+- Evitar inconsistencias como reservas sin pago, coches duplicados o estados incorrectos.
+- Proteger la lógica de negocio frente a errores o fallos inesperados.
+- Asegurar confiabilidad en procesos financieros y de disponibilidad de coches.
