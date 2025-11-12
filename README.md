@@ -12,6 +12,13 @@ Este espacio propone presentar la información para organizar el desarrollo del 
 		  tema01_script02.sql
 		  tema_nombre.md (descripción completa del procedimiento para implementar el tema técnico de estudio)
 	---->tema_2
-	----> ...
+		  tema01_script02.sql
+		  tema_nombre.md (descripción completa del procedimiento para implementar el tema técnico de estudio)
+	---->tema_03 (sub-carpeta específica del tema)
+	      tema01_script01.sql
+		  tema_nombre.md (descripción completa del procedimiento para implementar el tema técnico de estudio)
+	---->tema_04 (sub-carpeta del tema Triggers)
+		  tema04_script.sql
+		  tema_triggers.md (descripción completa del procedimiento para implementar el tema técnico de estudio)
     ->Proyecto_AutoRent.md (documento principal estructurado por capítulos)
     
