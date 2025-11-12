@@ -56,14 +56,14 @@ Los triggers son mecanismos automáticos que se ejecutan ante eventos como INSER
 
 Entre sus principales ventajas se destacan:
 
-Prevención de pérdida de datos.
+- Prevención de pérdida de datos.
 
-Registro de actividad (quién hizo qué y cuándo).
+- Registro de actividad (quién hizo qué y cuándo).
 
-Historial de cambios (conservan el estado anterior de los datos).
+- Historial de cambios (conservan el estado anterior de los datos).
 
-Control de integridad.
+- Control de integridad.
 
-Automatización silenciosa (ejecutan lógica sin necesidad de modificar el código externo, manteniendo consistencia interna).
+- Automatización silenciosa (ejecutan lógica sin necesidad de modificar el código externo, manteniendo consistencia interna).
 
 Los triggers son aliados clave para sistemas que requieren confiabilidad, transparencia y control sobre los datos.
