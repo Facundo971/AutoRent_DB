@@ -151,8 +151,12 @@ IF OBJECT_ID('trg_block_delete_detalle_metodo_pago', 'TR') IS NOT NULL
   DROP TRIGGER trg_block_delete_detalle_metodo_pago;
 GO
 
-IF OBJECT_ID('trg_auditoria_detalle_metodo_pago_upd_del', 'TR') IS NOT NULL
-  DROP TRIGGER trg_auditoria_detalle_metodo_pago_upd_del;
+IF OBJECT_ID('trg_auditoria_detalle_metodo_pago_upd', 'TR') IS NOT NULL
+  DROP TRIGGER trg_auditoria_detalle_metodo_pago_upd;
+GO
+
+IF OBJECT_ID('trg_auditoria_detalle_metodo_pago_del', 'TR') IS NOT NULL
+  DROP TRIGGER trg_auditoria_detalle_metodo_pago_del;
 GO
 
 -- Eliminar tabla de auditoría si existe
