@@ -49,3 +49,21 @@ En SQL Server existen las pseudotablas INSERTED y DELETED, que solo están dispo
 Estas pseudotablas deben tratarse en forma set‑based porque una sola sentencia puede afectar múltiples filas.
 
 ("Set‑based" = operar sobre todo el conjunto de filas afectadas a la vez, no fila por fila)
+
+# Conclusión
+
+Los triggers son mecanismos automáticos que se ejecutan ante eventos como INSERT, UPDATE o DELETE, permitiendo aplicar lógica directamente en la base de datos sin intervención del usuario. Son fundamentales para reforzar reglas de negocio, mantener la integridad de los datos y automatizar tareas críticas.
+
+Entre sus principales ventajas se destacan:
+
+Prevención de pérdida de datos.
+
+Registro de actividad (quién hizo qué y cuándo).
+
+Historial de cambios (conservan el estado anterior de los datos).
+
+Control de integridad.
+
+Automatización silenciosa (ejecutan lógica sin necesidad de modificar el código externo, manteniendo consistencia interna).
+
+Los triggers son aliados clave para sistemas que requieren confiabilidad, transparencia y control sobre los datos.
