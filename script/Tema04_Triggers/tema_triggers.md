@@ -20,13 +20,13 @@ CREATE TRIGGER nombre_trigger
 
 ON nombre_tabla
 
-AFTER | INSTEAD OF (INSERT, UPDATE, DELETE)
+  AFTER | INSTEAD OF (INSERT, UPDATE, DELETE)
 
-AS
+  AS
 
-BEGIN
+  BEGIN
 
-  -- cuerpo del trigger
+    -- cuerpo del trigger
 
 END;
 
