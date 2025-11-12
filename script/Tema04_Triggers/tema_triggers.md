@@ -52,18 +52,4 @@ Estas pseudotablas deben tratarse en forma set‑based porque una sola sentencia
 
 # Conclusión
 
-Los triggers son mecanismos automáticos que se ejecutan ante eventos como INSERT, UPDATE o DELETE, permitiendo aplicar lógica directamente en la base de datos sin intervención del usuario. Son fundamentales para reforzar reglas de negocio, mantener la integridad de los datos y automatizar tareas críticas.
-
-Entre sus principales ventajas se destacan:
-
-- Prevención de pérdida de datos.
-
-- Registro de actividad (quién hizo qué y cuándo).
-
-- Historial de cambios (conservan el estado anterior de los datos).
-
-- Control de integridad.
-
-- Automatización silenciosa (ejecutan lógica sin necesidad de modificar el código externo, manteniendo consistencia interna).
-
-Los triggers son aliados clave para sistemas que requieren confiabilidad, transparencia y control sobre los datos.
+A partir de las pruebas realizadas, se comprobó que los triggers definidos (AFTER UPDATE, AFTER DELETE e INSTEAD OF DELETE) funcionan correctamente para registrar operaciones sensibles sobre la tabla detalle_metodo_pago. Cada trigger logró capturar el estado previo de los datos, registrar el usuario y la fecha de la operación, y en el caso del trigger INSTEAD OF DELETE, bloquear el borrado físico e informar al usuario. Esto garantiza trazabilidad, integridad y control sobre las modificaciones realizadas en la base de datos.
