@@ -170,8 +170,19 @@ En síntesis, el trabajo realizado no solo resuelve las ineficiencias del sistem
 ## BIBLIOGRAFÍA DE CONSULTA
 
 [1] Unidad 2, Unidad 3 y Unidad 5: Diseño de Bases de Datos, Modelo Relacional 
-y SQL Avanzado, Aula Virtual UNNE, [En línea]. Disponible en: https://elibro.net/es/ereader/unne/121283 
+y SQL Avanzado, Aula Virtual UNNE, [En línea]. Disponible en: [https://elibro.net/es/ereader/unne/121283 ](https://elibro.net/es/ereader/unne/70030?page=1)
 
 [2] J. C. Pérez, Bases de Datos Relacionales: Fundamentos y Aplicaciones, 
 Editorial Alfaomega, 2018. 
 
+[3] P. Parada, Reference Guide: IEEE Style, Oficina de Tesis del Departamento de Ingeniería Eléctrica y Computación, Universidad de Illinois, 2008.
+
+[4] Microsoft Learn, "CREATE TRIGGER (Transact-SQL)", [En línea]. Disponible en: https://learn.microsoft.com/sql/t-sql/statements/create-trigger-transact-sql
+
+[5] Microsoft Learn, "Uso de las tablas inserted y deleted", [En línea]. Disponible en: https://learn.microsoft.com/sql/relational-databases/triggers/use-the-inserted-and-deleted-tables
+
+[6] SQLShack, "Triggers in SQL Server", [En línea]. Disponible en: https://www.sqlshack.com/triggers-in-sql-server/
+
+[7] SQLShack, "Magic Tables in SQL Server", [En línea]. Disponible en: https://www.sqlshack.com/magic-tables-in-sql-server/
+
+[8] Educative.io, "BEFORE vs AFTER triggers", [En línea]. Disponible en: https://www.educative.io/answers/difference-between-a-before-trigger-and-an-after-trigger
