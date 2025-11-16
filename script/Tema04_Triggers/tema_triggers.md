@@ -26,7 +26,7 @@ AS
 
 BEGIN
 
-  -- cuerpo del trigger
+-- cuerpo del trigger
 
 END;
 
@@ -49,3 +49,7 @@ En SQL Server existen las pseudotablas INSERTED y DELETED, que solo están dispo
 Estas pseudotablas deben tratarse en forma set‑based porque una sola sentencia puede afectar múltiples filas.
 
 ("Set‑based" = operar sobre todo el conjunto de filas afectadas a la vez, no fila por fila)
+
+# Conclusión
+
+A partir de las pruebas realizadas, se comprobó que los triggers definidos (AFTER UPDATE, AFTER DELETE e INSTEAD OF DELETE) funcionan correctamente para registrar operaciones sensibles sobre la tabla detalle_metodo_pago. Cada trigger logró capturar el estado previo de los datos, registrar el usuario y la fecha de la operación, y en el caso del trigger INSTEAD OF DELETE, bloquear el borrado físico e informar al usuario. Esto garantiza trazabilidad, integridad y control sobre las modificaciones realizadas en la base de datos.
