@@ -10,6 +10,7 @@ También existen índices adicionales de propósito especial, como lo son los í
 ## Pruebas realizadas
 
 1. Creación de tablas e inserción masiva de datos
+   
 Para las pruebas realizadas, vamos a crear una tabla alterna sin restricciones, con el fin de testear las optimizaciones, teniendo en cuenta que más adelante necesitaremos crear un índice agrupado que puede entrar en conflicto con nuestra clave primaria. En este caso vamos a usar la tabla detalle_metodo_pago, la cual se espera esté entre las tablas con más inserciones de la base de datos.
 
 ```
@@ -23,7 +24,7 @@ CREATE TABLE detalle_metodo_pago_test
 );
 ```
 
-Para la inserción se va a trabajar con BULK INSERT para insertar los valores desde una fuente externa, e indicandosele los parametros de inserción (omitir la primera fila donde se indican las columnas de la tabla, separar los valores por comas y separar las filas por saltos de línea).
+Para la inserción se va a trabajar con BULK INSERT para insertar los valores desde una fuente externa, indicandosele los parametros de inserción (omitir la primera fila donde se indican las columnas de la tabla, separar los valores por comas y separar las filas por saltos de línea).
 
 ```
 BULK INSERT
@@ -59,3 +60,20 @@ SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND
 ```
 En este caso con una busqueda de poco más de 10% del lote de un millon de registros, el tiempo de ejecución 
 disminuyó a un 29% del tiempo sin índice y las lecturas lógicas disminuyeron a un 14% aproximado del número de lecturas lógicas sin índice.
+
+4. Consulta con índice no agrupado
+
+Creamos un índice no agrupado en fecha_pago, e incluimos columnas que vamos a usar en la consulta
+```
+CREATE NONCLUSTERED INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test (fecha_pago)
+	INCLUDE (importe, id_detalle_metodo_pago, id_reserva, id_metodo_pago);
+
+-- realizamos la consulta
+SET STATISTICS IO, TIME ON;
+SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
+```
+
+La consulta con el índice no agrupado mejoró en gran medida el tiempo de ejecución, y también redujo el costo de la consulta respecto a una busqueda sin índice y la cantidad de lecturas lógicas. También se redujo ligeramente estos parámetros respecto a la busqueda con índice agrupado, pero se vieron mejores resultados para índices no agrupados que incluyan menos columnas, y con busquedas más específicas a estas.
+
+## Conclusiones
+Los índices pueden llegar a ser muy útiles cuando se necesita eficiencia a la hora de usar consultas, específicamente cuando estamos manejando grandes cantidades de datos, aunque es necesario saber usarlos para asegurarse de poder sacarle el mejor provecho a las características de cada uno, ya sea ordenamiento, eficiencia en cuanto a memoria, o la manera en la que cada uno de estos accede a los datos.
