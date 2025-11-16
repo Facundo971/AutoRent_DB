@@ -1,4 +1,4 @@
-# MANEJO DE TRANSACCIONES#
+# MANEJO DE TRANSACCIONES
 
 El manejo de transacciones es un proceso fundamental en sistemas de gestión de bases de datos (SGBD) que asegura la integridad y consistencia de los datos durante las operaciones de procesamiento.
 
