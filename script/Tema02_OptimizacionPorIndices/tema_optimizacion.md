@@ -6,3 +6,56 @@ Una tabla o una vista puede contener los siguientes tipos de índices:
 - **Índice Desagrupado(Non Clustered):** Los índices no clúster tienen una estructura separada de las filas de datos. Un índice no clúster contiene los valores de clave de índice no clúster y cada entrada de valor de clave tiene un puntero a la fila de datos que contiene el valor clave.
   
 También existen índices adicionales de propósito especial, como lo son los índices únicos, hash o espaciales.
+
+## Pruebas realizadas
+
+1. Creación de tablas e inserción masiva de datos
+Para las pruebas realizadas, vamos a crear una tabla alterna sin restricciones, con el fin de testear las optimizaciones, teniendo en cuenta que más adelante necesitaremos crear un índice agrupado que puede entrar en conflicto con nuestra clave primaria. En este caso vamos a usar la tabla detalle_metodo_pago, la cual se espera esté entre las tablas con más inserciones de la base de datos.
+
+```
+CREATE TABLE detalle_metodo_pago_test
+(
+  importe DECIMAL(10,2) NOT NULL,
+  fecha_pago DATE NOT NULL 
+  id_detalle_metodo_pago INT NOT NULL,
+  id_reserva INT NOT NULL,
+  id_metodo_pago INT NOT NULL
+);
+```
+
+Para la inserción se va a trabajar con BULK INSERT para insertar los valores desde una fuente externa, e indicandosele los parametros de inserción (omitir la primera fila donde se indican las columnas de la tabla, separar los valores por comas y separar las filas por saltos de línea).
+
+```
+BULK INSERT
+	detalle_metodo_pago_test
+FROM
+	'C:\Users\Desktop\bulk_test.txt' -- ubicación del archivo
+WITH(
+	FIELDTERMINATOR = ',',
+	ROWTERMINATOR = '\n',
+	FIRSTROW = 2
+)
+
+SELECT * FROM detalle_metodo_pago_test;
+```
+
+2. Consulta inicial por período sin índices
+
+Se realiza una consulta sin índice por período para futura comparación, y usamos SET STATISTICS IO, TIME ON para medir la cantidad de actividad física y lógica, así como las estadísticas del tiempo de la sentencia.
+
+```
+SET STATISTICS IO, TIME ON;
+SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
+```
+
+3. Consulta con índice agrupado
+```
+CREATE CLUSTERED INDEX ix_detalle_metodo_pago_test_cluster ON detalle_metodo_pago_test (fecha_pago);
+
+SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID('detalle_metodo_pago_test'); -- muestra los índices
+
+SET STATISTICS IO, TIME ON;
+SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
+```
+En este caso con una busqueda de poco más de 10% del lote de un millon de registros, el tiempo de ejecución 
+disminuyó a un 29% del tiempo sin índice y las lecturas lógicas disminuyeron a un 14% aproximado del número de lecturas lógicas sin índice.
