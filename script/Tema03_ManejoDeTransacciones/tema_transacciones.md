@@ -1,12 +1,12 @@
-#MANEJO DE TRANSACCIONES#
+# MANEJO DE TRANSACCIONES#
 
 El manejo de transacciones es un proceso fundamental en sistemas de gestión de bases de datos (SGBD) que asegura la integridad y consistencia de los datos durante las operaciones de procesamiento.
 
-#Definición y Proceso#
+# Definición y Proceso
 
 El manejo de transacciones se refiere a la gestión de un conjunto de operaciones que se ejecutan como una unidad lógica de trabajo. En un SGBD, una transacción puede incluir múltiples operaciones de lectura y escritura que deben completarse en su totalidad o no ejecutarse en absoluto. Esto se conoce como atomicidad, una de las propiedades clave de las transacciones. 
 
-#Propiedades ACID#
+# Propiedades ACID
 
 Las transacciones deben cumplir con las propiedades ACID, que son esenciales para garantizar la integridad de los datos:
 *Atomicidad*: Asegura que todas las operaciones dentro de una transacción se completen exitosamente; si alguna falla, se revierte todo el proceso.
@@ -17,7 +17,7 @@ Las transacciones deben cumplir con las propiedades ACID, que son esenciales par
 
 *Durabilidad*: Una vez que una transacción se ha confirmado, sus cambios son permanentes, incluso en caso de fallos del sistema. 
 
-#Estructura de las transacciones#
+# Estructura de las transacciones
  La estructura de una transacción usualmente viene dada según el modelo de la transacción, estas pueden ser planas (simples) o anidadas.
 
 *Transacciones planas*: Consisten en una secuencia de operaciones
@@ -64,6 +64,6 @@ BEGIN TRANSACTION Principal
 
 COMMIT TRANSACTION Principal
 
-#Conclusión#
+# Conclusión
 
 A partir de las pruebas realizadas, se comprobó que las transacciones implementadas (simples, con manejo de errores y con savepoints) funcionan correctamente para garantizar la atomicidad y consistencia de las operaciones en el sistema de alquiler de autos. Las transacciones simples permitieron confirmar o revertir bloques completos de acciones, mientras que el uso de bloques TRY/CATCH aseguró un control adecuado ante fallos. Por su parte, los savepoints demostraron ser el mecanismo más cercano a las transacciones anidadas, ya que posibilitan revertir parcialmente ciertas operaciones sin perder las anteriores. En conjunto, estas técnicas aseguran integridad, confiabilidad y control sobre los procesos críticos de inserción, actualización y reserva dentro de la base de datos.
