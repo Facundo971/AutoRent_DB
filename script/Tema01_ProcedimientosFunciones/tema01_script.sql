@@ -61,14 +61,14 @@ EXEC sp_EliminarMarca 3; -- cambiar por el id de la marca que se quiere eliminar
 
 -- PROCEDIMIENTOS PARA OTRA TABLA (EJ: USUARIO)
 CREATE PROCEDURE sp_InsertarUsuario
-  @nombre VARCHAR(50),              -- nombre del usuario
-  @apellido VARCHAR(50),            -- apellido del usuario
-  @dni INT,                         -- dni del usuario
-  @telefono VARCHAR(20),            -- telefono del usuario
-  @direccion VARCHAR(100),          -- dirección del usuario
-  @email VARCHAR(100),              -- email del usuario
-  @contrasenia VARCHAR(20),         -- contraseña del usuario
-  @id_tipo_usuario INT              -- id del usuario (Cliente o administrador)
+  @nombre VARCHAR(50),              -- Nombre del usuario
+  @apellido VARCHAR(50),            -- Apellido del usuario
+  @dni INT,                         -- DNI del usuario
+  @telefono VARCHAR(20),            -- Teléfono del usuario
+  @direccion VARCHAR(100),          -- Dirección del usuario
+  @email VARCHAR(100),              -- Email del usuario
+  @contrasenia VARCHAR(20),         -- Contraseña del usuario
+  @id_tipo_usuario INT              -- ID del tipo de usuario (Cliente o administrador)
 AS
 BEGIN
   INSERT INTO usuario (id_usuario, nombre, apellido, dni, telefono, direccion, email, contrasenia, id_tipo_usuario)  
