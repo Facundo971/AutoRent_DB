@@ -3,37 +3,38 @@
 
 -- PROCEDIMIENTOS ALMACENADOS (CRUD)
 
--- a) Insertar una marca
+-- a) Crea el procedimiento Insertar Marca
 CREATE PROCEDURE sp_InsertarMarca
-  @nombre VARCHAR(50)
+  @nombre VARCHAR(50)                                -- Parámetro de entrada: nombre de la marca
 AS
 BEGIN
-  INSERT INTO marca (id_marca, nombre)
-  VALUES ((SELECT ISNULL(MAX(id_marca),0)+1 FROM marca), @nombre);
+  INSERT INTO marca (id_marca, nombre)               -- Inserta una nueva marca en la tabla "marca"
+  VALUES ((SELECT ISNULL(MAX(id_marca),0)+1 FROM marca), @nombre);       -- id_marca se calcula buscando el máximo id_marca y sumándole 1 (auto-increment manual)
 END;
-GO
+GO                                                   -- Finaliza el procedimiento
 
--- b) Modificar una marca
+-- b) Crea el procedimiento Modificar marca
 CREATE PROCEDURE sp_ModificarMarca
-  @id_marca INT,
-  @nuevoNombre VARCHAR(50)
+  @id_marca INT,                -- ID de la marca a modificar
+  @nuevoNombre VARCHAR(50)      -- Nuevo nombre para la marca
 AS
 BEGIN
-  UPDATE marca
+  UPDATE marca                  -- Actualiza la tabla marca cambiando el nombre
   SET nombre = @nuevoNombre
-  WHERE id_marca = @id_marca;
+  WHERE id_marca = @id_marca;   -- Solo modifica la marca con este ID
 END;
 GO
 
--- c) Eliminar una marca
+-- c) Crea el procedimiento Eliminar marca
 CREATE PROCEDURE sp_EliminarMarca
-  @id_marca INT
+  @id_marca INT                 -- ID de la marca a eliminar
 AS
 BEGIN
-  DELETE FROM marca
-  WHERE id_marca = @id_marca;
+  DELETE FROM marca             -- Borra el registro correspondiente al ID enviado
+  WHERE id_marca = @id_marca;   -- Busca la marca a eliminar por el ID
 END;
 GO
+
 
 
 -- INSERCIÓN DE DATOS (LOTE DIRECTO)
@@ -60,18 +61,18 @@ EXEC sp_EliminarMarca 3; -- cambiar por el id de la marca que se quiere eliminar
 
 -- PROCEDIMIENTOS PARA OTRA TABLA (EJ: USUARIO)
 CREATE PROCEDURE sp_InsertarUsuario
-  @nombre VARCHAR(50),
-  @apellido VARCHAR(50),
-  @dni INT,
-  @telefono VARCHAR(20),
-  @direccion VARCHAR(100),
-  @email VARCHAR(100),
-  @contrasenia VARCHAR(20),
-  @id_tipo_usuario INT
+  @nombre VARCHAR(50),              -- nombre del usuario
+  @apellido VARCHAR(50),            -- apellido del usuario
+  @dni INT,                         -- dni del usuario
+  @telefono VARCHAR(20),            -- telefono del usuario
+  @direccion VARCHAR(100),          -- dirección del usuario
+  @email VARCHAR(100),              -- email del usuario
+  @contrasenia VARCHAR(20),         -- contraseña del usuario
+  @id_tipo_usuario INT              -- id del usuario (Cliente o administrador)
 AS
 BEGIN
-  INSERT INTO usuario (id_usuario, nombre, apellido, dni, telefono, direccion, email, contrasenia, id_tipo_usuario)
-  VALUES ((SELECT ISNULL(MAX(id_usuario),0)+1 FROM usuario),
+  INSERT INTO usuario (id_usuario, nombre, apellido, dni, telefono, direccion, email, contrasenia, id_tipo_usuario)  
+  VALUES ((SELECT ISNULL(MAX(id_usuario),0)+1 FROM usuario),   -- Inserta un nuevo usuario generando ID automáticamente
           @nombre, @apellido, @dni, @telefono, @direccion, @email, @contrasenia, @id_tipo_usuario);
 END;
 GO
@@ -88,51 +89,57 @@ EXEC sp_InsertarUsuario 'Ana', 'Gómez', 30555666, '1133334444', 'Belgrano 2020'
 EXEC sp_InsertarUsuario 'Carlos', 'López', 28999111, '1145678901', 'Mitre 450', 'carlos.lopez@gmail.com', 'admin2024', 2;
 
 
-
 -- FUNCIONES ALMACENADAS
 
--- a) Función escalar: cantidad de días entre fechas
+-- a) Crea una función escalar que recibe dos fechas
 CREATE FUNCTION fn_CantidadDiasReserva
 (
-  @fecha_retiro DATE,
-  @fecha_devolucion DATE
+  @fecha_retiro DATE,           -- Fecha de retiro
+  @fecha_devolucion DATE        -- Fecha de devolución
 )
-RETURNS INT
+RETURNS INT                     -- Devuelve un número entero
 AS
 BEGIN
-  RETURN DATEDIFF(DAY, @fecha_retiro, @fecha_devolucion);
+  RETURN DATEDIFF(DAY, @fecha_retiro, @fecha_devolucion);    -- Devuelve la diferencia en días entre las dos fechas
 END;
 GO
+
 
 -- b) Función escalar: total estimado de reserva
 CREATE FUNCTION fn_TotalReserva
 (
-  @precio_diario DECIMAL(10,2),
-  @fecha_retiro DATE,
-  @fecha_devolucion DATE
+  @precio_diario DECIMAL(10,2),      -- Precio por día (10 = número total de dígitos) y (2 = número de dígitos a la derecha del punto decimal)
+  @fecha_retiro DATE,                -- Fecha de retiro
+  @fecha_devolucion DATE             -- Fecha de devolución
 )
-RETURNS DECIMAL(10,2)
+RETURNS DECIMAL(10,2)                -- Devuelve el total como número decimal
 AS
 BEGIN
-  DECLARE @dias INT = DATEDIFF(DAY, @fecha_retiro, @fecha_devolucion);
-  RETURN @precio_diario * @dias;
+  DECLARE @dias INT = DATEDIFF(DAY, @fecha_retiro, @fecha_devolucion);    -- Calcula la cantidad de días
+  RETURN @precio_diario * @dias;         -- Devuelve el precio por día multiplicado por la cantidad de días
 END;
 GO
 
--- c) Función de tabla: listar coches disponibles
+
 CREATE FUNCTION fn_CochesDisponibles()
-RETURNS TABLE
+RETURNS TABLE                       -- Devuelve una tabla completa
 AS
 RETURN
 (
-  SELECT c.id_coche, c.nombre, c.precio, m.nombre AS marca
+  -- Devuelve una tabla con coches disponibles
+  SELECT 
+    c.id_coche,                    -- ID del coche
+    c.nombre,                      -- Nombre del coche
+    c.precio,                      -- Precio diario
+    m.nombre AS marca              -- Nombre de la marca
   FROM coche c
-  INNER JOIN modelo mo ON c.id_modelo = mo.id_modelo
-  INNER JOIN marca m ON mo.id_marca = m.id_marca
-  INNER JOIN estado_coche ec ON c.id_estado_coche = ec.id_estado_coche
-  WHERE ec.descripcion = 'Disponible'
+  INNER JOIN modelo mo ON c.id_modelo = mo.id_modelo   -- Relación coche -> modelo
+  INNER JOIN marca m ON mo.id_marca = m.id_marca  -- Relación modelo -> marca
+  INNER JOIN estado_coche ec ON c.id_estado_coche = ec.id_estado_coche    -- Relación coche -> estado_coche
+  WHERE ec.descripcion = 'Disponible'    -- Filtro: solo coches disponibles
 );
 GO
+
 
 
 -- USO DE FUNCIONES
