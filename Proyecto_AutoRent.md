@@ -213,3 +213,7 @@ Editorial Alfaomega, 2018.
 [11] Monografías.com, "Manejo de transacciones", [Online]. Available: https://www.monografias.com/trabajos96/manejo-transacciones/manejo-transacciones
 
 [12] MySQLYA, "Gestión de transacciones en bases de datos", [Online]. Available: https://mysqlya.com.ar/bases-de-datos/gestion-de-transacciones-base-de-datos/
+
+[13] Microsoft Learn, "Índices en bases de datos relacionales", [Online]. Available: https://learn.microsoft.com/es-es/sql/relational-databases/indexes/indexes?view=sql-server-ver17
+
+[14] B. Richardson, "Using covering indexes to improve query performance", Simple Talk, [Online]. Available: https://www.red-gate.com/simple-talk/databases/sql-server/learn/using-covering-indexes-to-improve-query-performance/
