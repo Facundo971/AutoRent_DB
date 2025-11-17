@@ -1,6 +1,16 @@
+use master;
+GO
+
+IF (select name from sys.databases where name ='AutoRent') IS NULL 
+    CREATE DATABASE AutoRent;
+GO
+
 use AutoRent;
 GO
 
+IF OBJECT_ID('dbo.detalle_metodo_pago_test', 'U') IS NOT NULL
+    DROP TABLE dbo.detalle_metodo_pago_test;
+GO
 
 -- Creamos una tabla aparte para testear las optimizaciones, ya que vamos a ocupar índices agrupados más adelante,
 -- lo cual va a entrar en conflicto con la clave primaria de la tabla original.
@@ -22,7 +32,7 @@ CREATE TABLE detalle_metodo_pago_test
 BULK INSERT
 	detalle_metodo_pago_test
 FROM
-	'C:\Users\Desktop\bulk_test.txt' -- ubicación del archivo
+	'C:\Users\Desktop\bulk_test.txt' -- ubicación del archivo en la computadora
 WITH(
 	FIELDTERMINATOR = ',', -- separador de campos
 	ROWTERMINATOR = '\n', -- separador de filas
