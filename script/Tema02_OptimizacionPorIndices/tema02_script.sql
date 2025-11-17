@@ -1,19 +1,20 @@
 use AutoRent;
 GO
 
+
 -- Creamos una tabla aparte para testear las optimizaciones, ya que vamos a ocupar índices agrupados más adelante,
--- lo cual no va a permitir que existan pk previas a la creación.
+-- lo cual va a entrar en conflicto con la clave primaria de la tabla original.
 CREATE TABLE detalle_metodo_pago_test
 (
   importe DECIMAL(10,2) NOT NULL,
-  fecha_pago DATE NOT NULL CONSTRAINT df_detalle_metodo_pago_fecha_pago_test DEFAULT CAST(GETDATE() AS DATE),
+  fecha_pago DATE NOT NULL,
   id_detalle_metodo_pago INT NOT NULL,
   id_reserva INT NOT NULL,
-  id_metodo_pago INT NOT NULL,
-  CONSTRAINT ck_detalle_metodo_pago_importe_test CHECK (importe >= 0),
-  CONSTRAINT ck_detalle_metodo_pago_fecha_pago_test CHECK (fecha_pago <= CAST(GETDATE() AS DATE)),
+  id_metodo_pago INT NOT NULL
 );
 
+
+----------------------------------------------------------------------------------------------
 -- 1. Insercion masiva de registros
 -- Vamos a usar BULK INSERT para insertar los valores desde una fuente externa, en este caso un .txt, al cual
 -- se le indicaron las columnas de la tabla en su primera fila, y a partir de la segunda fila tiene todos los 
@@ -23,22 +24,27 @@ BULK INSERT
 FROM
 	'C:\Users\Desktop\bulk_test.txt' -- ubicación del archivo
 WITH(
-	FIELDTERMINATOR = ',',
-	ROWTERMINATOR = '\n',
-	FIRSTROW = 2
+	FIELDTERMINATOR = ',', -- separador de campos
+	ROWTERMINATOR = '\n', -- separador de filas
+	FIRSTROW = 2 -- fila desde la que se empieza la inserción de datos
 )
+
 SELECT * FROM detalle_metodo_pago_test;
 
 
+----------------------------------------------------------------------------------------------
 -- 2. Busqueda por período
 SELECT TOP 1 * FROM detalle_metodo_pago_test ORDER BY fecha_pago desc;
 
-SET STATISTICS IO, TIME ON;
+-- Activamos estadísticas de lecturas físicas y lógicas, así como de tiempo, y hacemos la busqueda.
+SET STATISTICS IO, TIME ON; 
 SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
 
 
+----------------------------------------------------------------------------------------------
 -- 3. Busqueda por período con índice agrupado
 CREATE CLUSTERED INDEX ix_detalle_metodo_pago_test_cluster ON detalle_metodo_pago_test (fecha_pago);
+SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID('detalle_metodo_pago_test'); -- muestra los índices
 
 SET STATISTICS IO, TIME ON;
 SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
@@ -48,36 +54,34 @@ SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND
 
 -- Al ya estar creado un índice agrupado podemos añadir una clave primaria a la tabla, la cual va a añadirse como 
 -- un índice no agrupado.
-ALTER TABLE detalle_metodo_pago_test ADD CONSTRAINT pk_detalle_metodo_pago_test PRIMARY KEY (id_detalle_metodo_pago, id_reserva);
-SELECT * FROM sys.indexes WHERE object_id = OBJECT_ID('detalle_metodo_pago_test');
-ALTER TABLE detalle_metodo_pago_test DROP CONSTRAINT pk_detalle_metodo_pago_test;
+-- ALTER TABLE detalle_metodo_pago_test ADD CONSTRAINT pk_detalle_metodo_pago_test PRIMARY KEY (id_detalle_metodo_pago, id_reserva);
+-- ALTER TABLE detalle_metodo_pago_test DROP CONSTRAINT pk_detalle_metodo_pago_test;
 
-
--- 4. Busqueda por período con índice no agrupado
+-- Borramos el índice agrupado
 DROP INDEX ix_detalle_metodo_pago_test_cluster ON detalle_metodo_pago_test;
 
-CREATE NONCLUSTERED INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test (fecha_pago);
+
+----------------------------------------------------------------------------------------------
+-- 4. Busqueda por período con índice no agrupado
+
+-- Primera busqueda con índice no agrupado sin inclusiones
+CREATE NONCLUSTERED INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test (fecha_pago); 
 
 SET STATISTICS IO, TIME ON;
--- Creando un índice no cluster y añadiendo una clave primaria compuesta que funcione como índice cluster el
--- tiempo de busqueda disminuye respecto al query sin índice, pero es mayor al tiempo con índice agrupado, y la 
--- cantidad de lecturas supera a ambos, esto es porque creamos un índice no cluster para fecha_pago, además de
--- los íd de la clave primaria cluster a la cual el índice no cluster apunta, pero existen columnas las cuales
--- no tienen un índice como lo son importe e id_metodo_pago a la cual estamos llamando en la consulta.
 SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
+-- Al hacer una consulta con columnas a las cuales el índice no tiene acceso, se termina haciendo un recorrido de 
+-- tabla, con lo cual el tiempo de ejecución y las lecturas lógicas se ven afectados.
 
--- Al hacer una consulta con las columnas al cual los índices no agrupados tienen acceso el tiempo de ejecución y
--- las lecturas lógicas disminuyen considerablemente.
-SELECT id_detalle_metodo_pago, id_reserva, fecha_pago FROM detalle_metodo_pago_test 
-	WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
+DROP INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test; -- borramos el índice no agrupado.
 
-DROP INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test;
+-- Segunda busqueda agregando columnas faltantes
 CREATE NONCLUSTERED INDEX ix_detalle_metodo_pago_test_noncluster ON detalle_metodo_pago_test (fecha_pago)
-	INCLUDE (importe, id_metodo_pago);
+	INCLUDE (importe, id_detalle_metodo_pago, id_reserva, id_metodo_pago);
 
 SELECT * FROM detalle_metodo_pago_test WHERE fecha_pago BETWEEN '2024-10-31' AND '2025-10-31';
--- Haciendo una consulta con todas las columnas después de incluir las faltantes en el índice no agrupado el tiempo
--- y la cantidad de lecturas también disminuyen considerablemente.
+-- Al hacer la busqueda con las columnas faltantes el tiempo y las lecturas disminuyeron bastante, incluso siendo
+-- menores a la busqueda por índice agrupado en este caso.
 
 
-
+-- Borramos la tabla de prueba
+DROP TABLE detalle_metodo_pago_test;
