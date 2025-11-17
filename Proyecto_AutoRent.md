@@ -163,8 +163,8 @@ Acceder a la siguiente carpeta para la descripción completa del tema [script �
 
 
 ### Desarrollo TEMA 4 "Triggers"
-
 Acceder a la siguiente carpeta para la descripción completa del tema [script → tema 4](https://github.com/Facundo971/AutoRent_DB/tree/main/script/Tema04_Triggers)
+
 
 
 
