@@ -146,19 +146,19 @@ Para la recolección, análisis y tratamiento de la información se utilizaron l
 
 Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
 
-## Desarrollo TEMA 1 "Procedimientos y funciones almacenadas"
+### Desarrollo TEMA 1 "Procedimientos y funciones almacenadas"
 
 [Acceder a la carpeta script → tema 1](https://github.com/Facundo971/AutoRent_DB/tree/main/script/Tema01_ProcedimientosFunciones)
 
-## Desarrollo TEMA 2 "Optimización de consultas a través de índices"
+### Desarrollo TEMA 2 "Optimización de consultas a través de índices"
 
 [Acceder a la carpeta script → tema 2](https://github.com/Facundo971/AutoRent_DB/tree/main/script/Tema02_OptimizacionPorIndices)
 
-## Desarrollo TEMA 3 "Manejo de transacciones y transacciones anidadas"
+### Desarrollo TEMA 3 "Manejo de transacciones y transacciones anidadas"
 
 [Acceder a la carpeta script → tema 3](https://github.com/Facundo971/AutoRent_DB/tree/main/script/Tema03_ManejoDeTransacciones)
 
-## Desarrollo TEMA 4 "Triggers"
+### Desarrollo TEMA 4 "Triggers"
 
 [Acceder a la carpeta script → tema 4](https://github.com/Facundo971/AutoRent_DB/tree/main/script/Tema04_Triggers)
 
