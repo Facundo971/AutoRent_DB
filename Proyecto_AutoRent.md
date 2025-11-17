@@ -205,3 +205,11 @@ Editorial Alfaomega, 2018.
 [7] SQLShack, "Magic Tables in SQL Server", [En línea]. Disponible en: https://www.sqlshack.com/magic-tables-in-sql-server/
 
 [8] Educative.io, "BEFORE vs AFTER triggers", [En línea]. Disponible en: https://www.educative.io/answers/difference-between-a-before-trigger-and-an-after-trigger
+
+[9] Microsoft Learn, "Funciones definidas por el usuario (UDF)", [Online]. Available: https://learn.microsoft.com/es-mx/sql/relational-databases/user-defined-functions/user-defined-functions?view=sql-server-ver17
+
+[10] Microsoft Learn, "Procedimientos almacenados - Motor de base de datos", [Online]. Available: https://learn.microsoft.com/es-mx/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver17
+
+[11] Monografías.com, "Manejo de transacciones", [Online]. Available: https://www.monografias.com/trabajos96/manejo-transacciones/manejo-transacciones
+
+[12] MySQLYA, "Gestión de transacciones en bases de datos", [Online]. Available: https://mysqlya.com.ar/bases-de-datos/gestion-de-transacciones-base-de-datos/
