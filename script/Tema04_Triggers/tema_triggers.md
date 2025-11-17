@@ -16,19 +16,19 @@ Los eventos típicos son operaciones sobre los datos: INSERT, UPDATE y DELETE. A
 
 La instrucción CREATE TRIGGER permite crear un nuevo trigger que se activa automáticamente cada vez que ocurre un evento, como INSERT, DELETE o UPDATE en una tabla.
 
-CREATE TRIGGER nombre_trigger
+    CREATE TRIGGER nombre_trigger
 
-ON nombre_tabla
+    ON nombre_tabla
 
-AFTER | INSTEAD OF (INSERT, UPDATE, DELETE)
+    AFTER | INSTEAD OF (INSERT, UPDATE, DELETE)
 
-AS
+    AS
 
-BEGIN
+    BEGIN
 
--- cuerpo del trigger
+      -- cuerpo del trigger
 
-END;
+    END;
 
 Un trigger siempre está asociado a una tabla o vista y se define para uno o más eventos.
 
