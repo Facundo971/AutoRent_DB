@@ -1,118 +1,118 @@
---TRANSACCION: Registrar un nuevo coche + su modelo/marca
-BEGIN TRANSACTION;  -- Inicia una transacciÛn explÌcita. A partir de aquÌ, todas las operaciones quedan bajo control: se aplican solo si se hace COMMIT, o se revierten si ocurre un ROLLBACK.
-BEGIN TRY			-- Comienza un bloque de manejo de errores. Todo lo que estÈ dentro de este bloque se ejecuta normalmente, pero si ocurre un error, se salta autom·ticamente al bloque CATCH.
+--TRANSACCION: Registrar un nuevo coche
+BEGIN TRANSACTION;  -- Inicia una transacci√≥n expl√≠cita. A partir de aqu√≠, todas las operaciones quedan bajo control: se aplican solo si se hace COMMIT, o se revierten si ocurre un ROLLBACK.
+BEGIN TRY			-- Comienza un bloque de manejo de errores. Todo lo que est√© dentro de este bloque se ejecuta normalmente, pero si ocurre un error, se salta autom√°ticamente al bloque CATCH.
 	INSERT INTO coche (id_coche, precio, nombre, anio_fabricacion, descripcion, imagen, id_modelo, id_estado_coche) --- Inserta un nuevo registro en la tabla coche.
-		VALUES (4, 880.00, 'Toyota Corolla Hybrid', 2024, 'Sed·n hÌbrido, eficiente y moderno', 'corolla_hybrid.jpg', 1, 1);
-	COMMIT TRANSACTION -- Si el INSERT se ejecuta correctamente, se confirma la transacciÛn. Esto hace que el nuevo coche quede guardado de forma definitiva en la base de datos.
+		VALUES (4, 880.00, 'Toyota Corolla Hybrid', 2024, 'Sed√°n h√≠brido, eficiente y moderno', 'corolla_hybrid.jpg', 1, 1);
+	COMMIT TRANSACTION -- Si el INSERT se ejecuta correctamente, se confirma la transacci√≥n. Esto hace que el nuevo coche quede guardado de forma definitiva en la base de datos.
 END TRY  --- Finaliza el bloque TRY.
 	BEGIN CATCH  -- Si ocurre un error dentro del bloque TRY (por ejemplo, si el id_modelo o id_estado_coche no existen), se ejecuta este bloque.
-		ROLLBACK TRANSACTION  -- Revierte la transacciÛn completa. Esto significa que ning˙n cambio se guarda en la base de datos. El coche no se inserta y todo vuelve al estado anterior.
+		ROLLBACK TRANSACTION  -- Revierte la transacci√≥n completa. Esto significa que ning√∫n cambio se guarda en la base de datos. El coche no se inserta y todo vuelve al estado anterior.
 		PRINT 'Error al agregar coches'  -- Muestra un mensaje en la consola de SQL Server indicando que hubo un error.
 	END CATCH  --- Finaliza el bloque CATCH.
 
 --TRANSACCION: CREAR UNA RESERVA MAS EL PAGO INICIAL
-BEGIN TRANSACTION; -- Se inicia una transacciÛn explÌcita. Todo lo que sigue queda bajo control de commit/rollback.
+BEGIN TRANSACTION; -- Se inicia una transacci√≥n expl√≠cita. Todo lo que sigue queda bajo control de commit/rollback.
 
-BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar· al bloque CATCH.
+BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar√° al bloque CATCH.
 
 	-- Inserta una nueva reserva en la tabla 'reserva'
 	INSERT INTO reserva (id_reserva, fecha_devolucion, hora_devolucion, precio_total, id_usuario, id_estado_reserva, id_coche)
-    VALUES (4, DATEADD(DAY, 7, CAST(GETDATE() AS DATE)), -- fecha_devolucion: 7 dÌas despuÈs de hoy
+    VALUES (4, DATEADD(DAY, 7, CAST(GETDATE() AS DATE)), -- fecha_devolucion: 7 d√≠as despu√©s de hoy
             CAST('15:00' AS TIME),                       -- hora_devolucion: 15:00 hs
             6160.00,                                    -- precio_total
             2,                                          -- id_usuario: referencia al usuario con id=2
             2,                                          -- id_estado_reserva: referencia al estado de reserva (ej. "En Proceso")
             4);                                         -- id_coche: referencia al coche con id=4
 
-	-- Inserta el detalle del mÈtodo de pago asociado a la reserva
+	-- Inserta el detalle del m√©todo de pago asociado a la reserva
 	INSERT INTO detalle_metodo_pago (id_detalle_metodo_pago, id_reserva, id_metodo_pago, importe)
-    VALUES (4, 4, 2, 6160.00); -- id_detalle_metodo_pago=4, reserva=4, mÈtodo de pago=2, importe=6160.00
+    VALUES (4, 4, 2, 6160.00); -- id_detalle_metodo_pago=4, reserva=4, m√©todo de pago=2, importe=6160.00
 
 	-- Actualiza el estado del coche reservado
 	UPDATE coche
 	SET id_estado_coche = 2 -- cambia el estado del coche (ej. de "Disponible" a "No disponible")
 	WHERE id_coche = 4;     -- afecta al coche con id=4
 
-	COMMIT transaction; -- Si todo saliÛ bien, se confirma la transacciÛn y los cambios quedan guardados.
+	COMMIT transaction; -- Si todo sali√≥ bien, se confirma la transacci√≥n y los cambios quedan guardados.
 
 END TRY -- Fin del bloque TRY
 
 BEGIN CATCH -- Si ocurre un error en cualquiera de las operaciones anteriores, se ejecuta este bloque.
 
-	ROLLBACK TRANSACTION; -- Revierte toda la transacciÛn, ning˙n cambio queda guardado.
+	ROLLBACK TRANSACTION; -- Revierte toda la transacci√≥n, ning√∫n cambio queda guardado.
 	PRINT 'Error al realizar reserva'; -- Muestra un mensaje indicando que hubo un error.
 
 END CATCH -- Fin del bloque CATCH
 
 
 --TRANSACCION: FINALIZAR UNA RESERVA
-BEGIN TRANSACTION; -- Se inicia una transacciÛn explÌcita. Todo lo que sigue queda bajo control de commit/rollback.
+BEGIN TRANSACTION; -- Se inicia una transacci√≥n expl√≠cita. Todo lo que sigue queda bajo control de commit/rollback.
 
-BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar· al bloque CATCH.
+BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar√° al bloque CATCH.
 
-	-- Actualiza la reserva con id=1, cambiando su estado a 3 (ej. "Finalizado")
+	-- Actualiza la reserva con id=1, cambiando su estado a 3 ("Finalizado")
 	UPDATE reserva
 	SET id_estado_reserva = 3
 	WHERE id_reserva = 1;
 
 	-- Actualiza el estado del coche asociado a esa reserva
 	UPDATE coche
-	SET id_estado_coche = 1 -- cambia el estado del coche a 1 (ej. "Disponible")
+	SET id_estado_coche = 1 -- cambia el estado del coche a 1 ("Disponible")
 	WHERE id_coche = (
 		SELECT id_coche -- obtiene el coche vinculado a la reserva
 		FROM reserva
 		WHERE id_reserva = 1
 	);
 
-	COMMIT TRANSACTION; -- Si todo saliÛ bien, se confirma la transacciÛn y los cambios quedan guardados.
+	COMMIT TRANSACTION; -- Si todo sali√≥ bien, se confirma la transacci√≥n y los cambios quedan guardados.
 
 END TRY -- Fin del bloque TRY
 
 BEGIN CATCH -- Si ocurre un error en cualquiera de las operaciones anteriores, se ejecuta este bloque.
 
-	ROLLBACK TRANSACTION; -- Revierte toda la transacciÛn, ning˙n cambio queda guardado.
+	ROLLBACK TRANSACTION; -- Revierte toda la transacci√≥n, ning√∫n cambio queda guardado.
 	PRINT 'error al finalizar reserva'; -- Muestra un mensaje indicando que hubo un error.
 
 END CATCH -- Fin del bloque CATCH
 
 
--- En SQL Server no existen transacciones anidadas reales; lo m·s equivalente es trabajar con una sola transacciÛn y savepoints, 
--- que permiten un control m·s granular sobre quÈ parte se revierte en caso de error.
+-- En SQL Server no existen transacciones anidadas reales; lo m√°s equivalente es trabajar con una sola transacci√≥n y savepoints, 
+-- que permiten un control m√°s granular sobre qu√© parte se revierte en caso de error.
 
--- TRANSACCI”N ANIDADA: Insertar usuario + reserva + actualizar coche
-BEGIN TRANSACTION; -- Se inicia una transacciÛn explÌcita. Todo lo que sigue queda bajo control de commit/rollback.
+-- TRANSACCI√ìN ANIDADA: Insertar usuario + reserva + actualizar coche
+BEGIN TRANSACTION; -- Se inicia una transacci√≥n expl√≠cita. Todo lo que sigue queda bajo control de commit/rollback.
 
-BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar· al bloque CATCH.
+BEGIN TRY -- Comienza el bloque TRY: si ocurre un error, se saltar√° al bloque CATCH.
 
     -- Paso 1: Insertar un nuevo usuario en la tabla 'usuario'
     INSERT INTO usuario (id_usuario, nombre, apellido, dni, telefono, direccion, email, contrasenia, id_tipo_usuario)
-    VALUES ((SELECT ISNULL(MAX(id_usuario),0)+1 FROM usuario), -- genera un nuevo id_usuario tomando el m·ximo actual +1
-            'Mario', 'Gonz·lez', 32222333, '1176543210', 'Av. Corrientes 1000',
+    VALUES ((SELECT ISNULL(MAX(id_usuario),0)+1 FROM usuario), -- genera un nuevo id_usuario tomando el m√°ximo actual +1
+            'Mario', 'Gonz√°lez', 32222333, '1176543210', 'Av. Corrientes 1000',
             'mario.gonzalez@gmail.com', 'mario2025', 1); -- inserta los datos del nuevo usuario
 
-    -- Guardar punto de control dentro de la transacciÛn
-    SAVE TRANSACTION PuntoUsuario; -- crea un savepoint llamado 'PuntoUsuario' para poder volver aquÌ si algo falla despuÈs
+    -- Guardar punto de control dentro de la transacci√≥n
+    SAVE TRANSACTION PuntoUsuario; -- crea un savepoint llamado 'PuntoUsuario' para poder volver aqu√≠ si algo falla despu√©s
 
-    -- Paso 2: Insertar una reserva asociada al usuario reciÈn creado
+    -- Paso 2: Insertar una reserva asociada al usuario reci√©n creado
     INSERT INTO reserva (id_reserva, fecha_retiro, fecha_devolucion, hora_retiro, hora_devolucion,
                          precio_total, id_usuario, id_estado_reserva, id_coche)
     VALUES ((SELECT ISNULL(MAX(id_reserva),0)+1 FROM reserva), -- genera un nuevo id_reserva
             CAST(GETDATE() AS DATE),                           -- fecha de retiro: hoy
-            DATEADD(DAY, 5, CAST(GETDATE() AS DATE)),          -- fecha de devoluciÛn: 5 dÌas despuÈs
+            DATEADD(DAY, 5, CAST(GETDATE() AS DATE)),          -- fecha de devoluci√≥n: 5 d√≠as despu√©s
             CAST('10:00' AS TIME),                             -- hora de retiro: 10:00
-            CAST('10:00' AS TIME),                             -- hora de devoluciÛn: 10:00
+            CAST('10:00' AS TIME),                             -- hora de devoluci√≥n: 10:00
             15000,                                             -- precio total
-            (SELECT MAX(id_usuario) FROM usuario),             -- id_usuario: el ˙ltimo insertado
-            1,                                                 -- id_estado_reserva: estado inicial (ej. "Pendiente")
-            99);                                               -- id_coche: intencionalmente inv·lido (no existe), provocar· error
+            (SELECT MAX(id_usuario) FROM usuario),             -- id_usuario: el √∫ltimo insertado
+            1,                                                 -- id_estado_reserva: estado inicial ("Pendiente")
+            99);                                               -- id_coche: intencionalmente inv√°lido (no existe), provocar√° error
 
     -- Paso 3: Actualizar estado de un coche
     UPDATE coche
     SET id_estado_coche = 2 -- cambia el estado del coche (ej. "No disponible")
     WHERE id_coche = 1;     -- afecta al coche con id=1
 
-    COMMIT TRANSACTION; -- Si todo saliÛ bien, se confirma la transacciÛn y los cambios quedan guardados.
-    PRINT 'TransacciÛn completada correctamente'; -- Mensaje de Èxito
+    COMMIT TRANSACTION; -- Si todo sali√≥ bien, se confirma la transacci√≥n y los cambios quedan guardados.
+    PRINT 'Transacci√≥n completada correctamente'; -- Mensaje de √©xito
 
 END TRY -- Fin del bloque TRY
 
@@ -120,11 +120,11 @@ BEGIN CATCH -- Si ocurre un error en cualquiera de las operaciones anteriores, s
 
     PRINT 'Error detectado: ' + ERROR_MESSAGE(); -- Muestra el mensaje de error capturado
 
-    -- Manejo seg˙n el estado de la transacciÛn
+    -- Manejo seg√∫n el estado de la transacci√≥n
     IF XACT_STATE() = -1
-        ROLLBACK TRANSACTION; -- Si la transacciÛn est· en estado irrecuperable, se revierte todo
+        ROLLBACK TRANSACTION; -- Si la transacci√≥n est√° en estado irrecuperable, se revierte todo
     ELSE
-        ROLLBACK TRANSACTION PuntoUsuario; -- Si la transacciÛn sigue activa, se revierte hasta el savepoint: el usuario queda insertado
+        ROLLBACK TRANSACTION PuntoUsuario; -- Si la transacci√≥n sigue activa, se revierte hasta el savepoint: el usuario queda insertado
 
     PRINT 'Rollback ejecutado'; -- Mensaje indicando que se hizo rollback
 
